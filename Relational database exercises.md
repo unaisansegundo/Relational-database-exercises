@@ -3,7 +3,7 @@
 ### Exercises 2:
 #### Question 1:
 select * from goal;
-![](W1Q1.png)
-![](W1Q1A.png)
+![](attachments/W1Q1.png)
+![](attachments/W1Q1A.png)
 
 
