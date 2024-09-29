@@ -1,5 +1,5 @@
 # Student: Unai San Segundo (2417471)
-# Week 2:
+# Week 3:
 ### Exercises 2:
 #### Question 1:
 select * from goal;
@@ -27,7 +27,7 @@ select name from country where name like 'F%'
 select name from country where name LIKE '%f%'
 ![](attachments/W2Q6.png)
 ![](attachments/W2Q6R.png)
-#### Question 7:\
+#### Question 7:
 select location from game where screen_name = 'Vesa';
 ![](attachments/W2Q7.png)
 ![](attachments/W2Q7R.png)
@@ -110,7 +110,7 @@ and game.screen_name = 'Ilkka' and goal.name = 'CLOUDS';
 ![](attachments/W3Q10.png)
 ![](attachments/W3Q10R.png)
 
-# Week 3:
+# Week 4:
 ### Exercises 4:
 #### Question 1:
  select country.name, airport.name
@@ -138,3 +138,30 @@ from goal left join goal_reached on goal.id = goal_reached.goal_id
 left join game on game.id = goal_reached.game_id;
 ![](attachments/W4Q5.png)
 ![](attachments/W4Q5R.png)
+### Exercises 5:
+#### Question 1:
+select country.name from country where country.iso_country in
+(select airport.iso_country from airport where airport.name like 'Satsuma%')
+![](attachments/W4Q6.png)
+![](attachments/W4Q6R.png)
+#### Question 2:
+select airport.name from airport where airport.iso_country in
+(select country.iso_country from country where country.name = 'Monaco');
+![](attachments/W4Q7.png)
+![](attachments/W4Q7R.png)
+#### Question 3:
+select game.screen_name from game where game.id in
+(select goal_reached.game_id from goal_reached where goal_reached.goal_id in
+(select goal.id from goal where goal.name = 'CLOUDS'));
+![](attachments/W4Q8.png)
+![](attachments/W4Q8R.png)
+#### Question 4:
+select country.name from country where country.iso_country not in
+(select airport.iso_country from airport)
+![](attachments/W4Q9.png)![](attachments/W4Q9R.png)
+#### Question 5:
+select goal.name from goal where goal.id not in
+(select goal_reached.goal_id from goal_reached where goal_reached.game_id in
+(select game.id from game where game.screen_name = 'Heini'))
+![](attachments/W4Q10.png)
+![](attachments/W4Q10R.png)
