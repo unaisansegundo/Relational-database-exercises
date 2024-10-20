@@ -251,19 +251,29 @@ select airport.name from airport where airport.elevation_ft =
 ![](attachments/W5Q7T.png)
 #### Question 8:
 ```
-
+select country.name from airport 
+inner join country on airport.iso_country = country.iso_country where airport.elevation_ft =
+(select max(elevation_ft) from airport);
 ```
-
+![](attachments/W5Q8.png)
+![](attachments/W5Q8R.png)
+![](attachments/W5Q8T.png)
 #### Question 9:
 ```
-
+select count(*) from goal_reached where goal_reached.game_id =
+(select id from game where screen_name = 'Vesa');
 ```
-
+![](attachments/W5Q9.png)
+![](attachments/W5Q9R.png)
+![](attachments/W5Q9T.png)
 #### Question 10:
 ```
-
+select name from airport where latitude_deg IN
+(select min(latitude_deg) from airport);
 ```
-
+![](attachments/W5Q10.png)
+![](attachments/W5Q10R.png)
+![](attachments/W5Q10T.png)
 
 
 
